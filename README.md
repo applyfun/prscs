@@ -14,16 +14,20 @@ Installation involves downloading PRScs from the web and setting up a conda envi
 
 ### Input files required
 
-1. GWAS summary statistics file for the trait of interest
+PRScs requires three different input files
+
+1) GWAS summary statistics file for the trait of interest
+
 Summary statistics from a GWAS of trait for which PRS will be calculated.
-A list of GWAS summary staistics from traits in UK Biobank are available here:
+
+A list of GWAS summary statistics from traits in UK Biobank are available here:
 https://docs.google.com/spreadsheets/d/1kvPoupSzsSFBNSztMzl04xMoSC3Kcx3CrjVf4yBmESU/edit?ts=5b5f17db#gid=178908679
 
-2. LD matrix file
+2) LD matrix file
+
 LD matrix to be used as a reference, calculated in a sample such as UK Biobank. 
 
-UK Biobank or 1000 Genomes LD reference panels can be downloaded from the PRScs github page here:
-https://github.com/getian107/PRScs
+UK Biobank or 1000 Genomes LD reference panels can be downloaded from the PRScs github page https://github.com/getian107/PRScs
 
 For the UK Biobank European subset LD reference panel:
 
@@ -37,7 +41,8 @@ wget https://www.dropbox.com/s/t9opx2ty6ucrpib/ldblk_ukbb_eur.tar.gz
 tar -zxvf ldblk_ukbb_eur.tar.gz
 ```
 
-3. Target genotypes files in bed-bim-fam format
+3) Target genotypes files in bed-bim-fam format
+
 Genotype files in plink bed-bim-fam format for the target sample in which PRS for the trait of interest will be calculated.
 
  
@@ -45,7 +50,7 @@ Genotype files in plink bed-bim-fam format for the target sample in which PRS fo
 
 The below process assumes PRScs has been installed using the above installation script and that the required files have been downloaded.
 
-* Step 1 *
+* Step 1
 
 #### Format GWAS summary statistics
 
@@ -55,3 +60,9 @@ If summary statistics from UK Biobank have been downloaded using the above refer
 module load 
 
 Rscript format_gwas.r
+```
+
+* Step 2
+
+
+
