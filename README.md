@@ -16,14 +16,14 @@ Installation involves downloading PRScs from the web and setting up a conda envi
 
 PRScs requires three different input files
 
-1) GWAS summary statistics file for the trait of interest
+**1) GWAS summary statistics file for the trait of interest**
 
 Summary statistics from a GWAS of trait for which PRS will be calculated.
 
 A list of GWAS summary statistics from traits in UK Biobank are available here:
 https://docs.google.com/spreadsheets/d/1kvPoupSzsSFBNSztMzl04xMoSC3Kcx3CrjVf4yBmESU/edit?ts=5b5f17db#gid=178908679
 
-2) LD matrix file
+2) **LD matrix file**
 
 LD matrix to be used as a reference, calculated in a sample such as UK Biobank. 
 
