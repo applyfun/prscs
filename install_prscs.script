@@ -1,0 +1,21 @@
+### Install PRScs using conda
+### Run on login node interactively 
+### Guide documentation from : https://github.com/getian107/PRScs
+
+# ceate a conda environmenet that PRScs can work in
+
+module load devtools/anaconda/2019.3-python3.7.3
+
+conda create -n prscs python=3.7.3 scipy numpy pandas h5py
+
+# navigate to the directory where PRScs will be installed
+
+cd ~/brc_scratch/software/
+
+git clone https://github.com/getian107/PRScs.git
+
+cd PRScs
+
+# test it
+
+./PRScs.py
