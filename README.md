@@ -49,21 +49,24 @@ Genotype files in plink bed-bim-fam format for the target sample in which PRS fo
 
 The below process assumes PRScs has been installed using the above installation script and that the required files have been downloaded.
 
-* **Step 1**
+* **Step 1 -  Format GWAS summary statistics**
 
-#### Format GWAS summary statistics
-
-If summary statistics from UK Biobank have been downloaded using the above reference list, then run the format_gwas.r script below
+If summary statistics from UK Biobank have been downloaded using the above reference list, then run the format_gwas.r script on an interactive node as below
 
 ```
 module load apps/R/3.6.0
 
-Rscript format_gwas.r /path/to/gwas/file/raw_gwas_summary_statistics.tsv formatted_outfile /path/to/output/directory/
+Rscript format_gwas.r /path/to/gwas/raw_gwas_summary_stats.tsv formatted_outfile /path/to/output/
+
 ```
+
+The R script requires three arguments; first the path to the GWAS summary statistics with file name, second the suffix of the output file to be saved after formatting, third the path to the output directory where the output will be written.
 
 If summary statistics have been downloaded from a consortium website, the GWAS catalog or are from any other source, they will need to formatted accordingly, to contain 5 columns of data: SNP A1 A2 BETA P
 
-* **Step 2**
+* **Step 2 - Run PRScs**
+
+
 
 
 
