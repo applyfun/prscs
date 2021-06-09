@@ -41,9 +41,16 @@ wget https://www.dropbox.com/s/t9opx2ty6ucrpib/ldblk_ukbb_eur.tar.gz
 tar -zxvf ldblk_ukbb_eur.tar.gz
 ```
 
-**3) Target genotypes files**
+**3) Target sample genotype files**
 
-Genotype files in plink bed-bim-fam format for the target sample in which PRS for the trait of interest will be calculated.
+Imputed genotype files in plink bed-bim-fam format for the target sample in which PRS for the trait of interest will be calculated.
+
+Ensure that basic QC has been applied to genotypes already, i.e.
+
+* Subset to individuals of EUR ancestry
+* Subset to SNPs with INFO>0.9 and MAF>1%
+* Remove SNPs with duplicates rs numbers
+* Remove indels
 
 ## Running PRScs
 
@@ -65,6 +72,29 @@ The R script requires three arguments; first the path to the GWAS summary statis
 If summary statistics have been downloaded from a consortium website, the GWAS catalog or are from any other source, they will need to formatted accordingly, to contain 5 columns of data: SNP A1 A2 BETA P
 
 * **Step 2 - Run PRScs**
+
+Run PRScs by submitting it as a job array to the cluster (one job will be created per chromosome)
+
+```
+sbatch submit_prscs_array.sh "PGC3_SCZ_wave3_public.v2" 
+```
+
+The job script requires five arguments, in order:
+* the path to the GWAS summary statistics, 
+* the name of GWAS summary statistics file in the directory, 
+* the path to the directory containing the PRScs software previously downloaded, 
+* the full path to the LD reference file
+* the full path to the target sample .bim file
+
+* **Step 2 - Create PRS**
+
+Using the output of PRScs that contains posterior SNP effect size estimates (a type of SNP weight) create a score using plink
+
+```
+bash make_prscs_score.bash
+```
+
+
 
 
 
