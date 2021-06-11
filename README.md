@@ -77,15 +77,16 @@ If summary statistics have been downloaded from a consortium website, the GWAS c
 Run PRScs by submitting it as a job array to the cluster (one job will be created per chromosome)
 
 ```
-sbatch submit_prscs_array.sh /path/to/summarystats/ "summary_statistics_formatted.tsv" /path/to/software/ /path/to/LDmatrix.file /path/to/target.bim
+sbatch submit_prscs_array.sh /path/to/summarystats/ "summary_statistics_formatted.tsv" /path/to/software/ /path/to/LDmatrix.file /path/to/target "10000"
 ```
 
-The job script requires five arguments, in order:
-* the path to the GWAS summary statistics
+The job script requires six arguments, in order:
+* the path to the GWAS summary statistics, this is also the output directory for results files
 * the name of GWAS summary statistics file in the directory
 * the path to the directory containing the PRScs software previously downloaded (i.e. directory containing PRScs.py) 
 * the full path to the LD reference file
-* the full path to the target sample .bim file
+* the full path to the target sample .bim file 
+* GWAS sample size
 
 
 * **Step 3 - Create PRS**
