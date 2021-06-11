@@ -71,28 +71,31 @@ The R script requires three arguments; first the path to the GWAS summary statis
 
 If summary statistics have been downloaded from a consortium website, the GWAS catalog or are from any other source, they will need to formatted accordingly, to contain 5 columns of data: SNP A1 A2 BETA P
 
+
 * **Step 2 - Run PRScs**
 
 Run PRScs by submitting it as a job array to the cluster (one job will be created per chromosome)
 
 ```
-sbatch submit_prscs_array.sh "PGC3_SCZ_wave3_public.v2" 
+sbatch submit_prscs_array.sh /path/to/summarystats/ "summary_statistics_formatted.tsv" /path/to/software/ /path/to/LDmatrix.file /path/to/target.bim
 ```
 
 The job script requires five arguments, in order:
-* the path to the GWAS summary statistics, 
-* the name of GWAS summary statistics file in the directory, 
-* the path to the directory containing the PRScs software previously downloaded, 
+* the path to the GWAS summary statistics
+* the name of GWAS summary statistics file in the directory
+* the path to the directory containing the PRScs software previously downloaded (i.e. directory containing PRScs.py) 
 * the full path to the LD reference file
 * the full path to the target sample .bim file
 
-* **Step 2 - Create PRS**
+
+* **Step 3 - Create PRS**
 
 Using the output of PRScs that contains posterior SNP effect size estimates (a type of SNP weight) create a score using plink
 
 ```
 bash make_prscs_score.bash
 ```
+
 
 
 
