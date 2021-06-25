@@ -57,6 +57,8 @@ Additionally, a list of HapMap3 variants is required. This list will be used to 
 
 The below process assumes PRScs has been installed using the above installation script and that the required files have been downloaded.
 
+---
+
 * **Step 1 -  Format GWAS summary statistics**
 
 If summary statistics from UK Biobank have been downloaded using the above reference list, then run the format_gwas.r script on an interactive node as below
@@ -72,6 +74,7 @@ The R script requires three arguments; first the path to the GWAS summary statis
 
 If summary statistics have been downloaded from a consortium website, the GWAS catalog or are from any other source, they will need to formatted accordingly, to contain 5 columns of data: SNP A1 A2 BETA P
 
+---
 
 * **Step 2 - Run PRScs**
 
@@ -82,13 +85,14 @@ sbatch submit_prscs_array.sh /path/to/summarystats/ summary_statistics_formatted
 ```
 
 The job script requires six arguments, in order:
-* the path to the GWAS summary statistics, this is also the output directory for results files
-* the name of GWAS summary statistics file in the directory
-* the path to the directory containing the PRScs software previously downloaded (i.e. directory containing PRScs.py) 
-* the full path to the LD reference file
-* the full path to the target sample .bim file 
-* GWAS sample size
+- the path to the GWAS summary statistics, this is also the output directory for results files
+- the name of GWAS summary statistics file in the directory
+- the path to the directory containing the PRScs software previously downloaded (i.e. directory containing PRScs.py) 
+- the full path to the LD reference file
+- the full path to the target sample .bim file 
+- GWAS sample size
 
+---
 
 * **Step 3 - Create PRS**
 
