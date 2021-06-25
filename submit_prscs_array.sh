@@ -38,6 +38,12 @@ echo ${SLURM_ARRAY_TASK_ID}
 
 chrom=${SLURM_ARRAY_TASK_ID}
 
+# set up options to utilise cores effectively in job
+
+export MKL_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export NUMEXPR_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
 # run PRScs
 
 python ${softwarepath}/PRScs.py
